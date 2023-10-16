@@ -105,7 +105,21 @@ it('Editar campos precio',() =>{
 
   })
 
+  it('entrar a editar y salir ', () => {
+    cy.get('tbody tr').first().children().contains('Edit').click()
+    cy.contains("Edit")
+      .should('be.visible');
+      cy.get('button[type="Button"]').click();
+      cy.url().should('eq', 'http://localhost:4200/crud');
+  })
 
+  it('minimizes the browser window', () => {
+    cy.viewport(1920, 1080); 
+    cy.wait(2000);        
+    cy.viewport(800, 600);
+    cy.wait(2000);
+    cy.viewport(1920, 1080);
+  });
 
-
+  
 })

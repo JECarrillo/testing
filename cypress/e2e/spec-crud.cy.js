@@ -31,5 +31,20 @@ describe('crud', () => {
   cy.contains( 'Tu Logo').click();
   cy.reload()
 })
+
+it('minimizes the browser window', () => {
+  cy.viewport(1920, 1080); 
+  cy.wait(2000);        
+  cy.viewport(800, 600);
+  cy.wait(2000);
+  cy.viewport(1920, 1080);
+});
+it('passes', () => {
+  cy.get('.btn-primary').should('be.visible').click();
+  cy.url().should('eq', 'http://localhost:4200/add');
+  cy.get('button[type="button"]').click();
+  cy.url().should('eq', 'http://localhost:4200/crud');
+
+})
 })
 

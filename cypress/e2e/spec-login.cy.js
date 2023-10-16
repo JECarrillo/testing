@@ -38,4 +38,13 @@ it('input vacio ', () => {
   cy.contains('Bad Request').should('be.visible');
 })
 
+
+it('minimizes the browser window', () => {
+  cy.viewport(1920, 1080); 
+  cy.wait(2000);        
+  cy.viewport(800, 600);
+  cy.wait(2000);
+  cy.viewport(1920, 1080);
+});
+
 })
